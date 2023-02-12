@@ -1,0 +1,18 @@
+// layout {
+//   match: EventOutput(this)
+//   mode (Summary)
+
+//   content {
+//     section {
+//       content {
+//         cell-card {
+//           slot2 {
+//             content {
+//               primary ("#{value(this.originalLink)}")
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

@@ -1,0 +1,9 @@
+enum (Type) {
+  description (Type of event)
+  symbol (all)
+  symbol (selected)
+  symbol (births)
+  symbol (deaths)
+  symbol (holidays)
+  symbol (events)
+  }
