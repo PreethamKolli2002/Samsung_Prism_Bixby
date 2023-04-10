@@ -1,0 +1,248 @@
+// macro-def (API_Events)
+// {
+//   params
+//   { 
+//     param (event){
+//     type(EventOutput)
+//     min(Required)
+//     max(One)
+//   }
+//   }
+//   content{
+//     section{
+//       content{
+//         image{
+//           aspect-ratio(4:3)
+//           url("#{value(event.imgUrl)}")
+//         }
+//         divider
+        // hbox{
+        //   content{
+            
+        //     vbox{
+        //       halign (Start)
+        //       content{
+        //         text{
+        //           value("#{upper(pet.name)}")
+        //           style(Title_S)
+        //         }
+
+        //       }
+
+        //     }
+        //     vbox{
+        //       halign (End)
+        //       content{
+        //         single-line{
+        //           image{
+        //             shape (Circle)
+        //             style(Title_S)
+        //             url("/icons/#{value(pet.species)}-icon.png")
+        //           }
+        //         }
+
+        //       }
+
+        //     }
+        //   }
+        // }
+        // divider
+        // hbox{
+        //   content{
+        //     vbox{
+        //       halign (Start)
+        //       content{
+        //         text{
+        //           value("Title")
+        //           style(Detail_L_Soft)
+        //         }
+        //         text{
+        //           value("#{value(event.title)}")
+        //           style(Detail_M)
+        //         }
+
+
+        //       }
+        //     }
+        //     // vbox{
+              
+        //     //   content{
+        //     //     text{
+        //     //       value("Weight")
+        //     //       style(Detail_L_Soft)
+        //     //     }
+        //     //     text{
+        //     //       value("#{value(pet.weight)}")
+        //     //       style(Detail_M)
+        //     //     }
+
+
+        //     //   }
+        //     // }
+        //   //   vbox{
+              
+        //   //     content{
+        //   //       text{
+        //   //         value("Age")
+        //   //         style(Detail_L_Soft)
+        //   //       }
+        //   //       text{
+        //   //         value("#{value(pet.age)}")
+        //   //         style(Detail_M)
+        //   //       }
+
+
+        //   //     }
+        //   //   }
+        //     // vbox{
+              
+        //     //   content{
+        //     //     text{
+        //     //       value("Gender")
+        //     //       style(Detail_L_Soft)
+        //     //     }
+        //     //     text{
+        //     //       value("#{value(pet.gender)}")
+        //     //       style(Detail_M)
+        //     //     }
+
+
+        //     //   }
+        //     // }
+        //   }
+        // }
+        // single-line{
+        //   text{
+        //     value ("Title")
+        //     style(Detail_L_Soft)
+
+        //   }
+        // }
+        // paragraph{
+        //   value("#{raw(event.title)}")
+        //   style(Detail_M)
+        // }
+        // divider
+        // spacer
+        // single-line{
+        //   text{
+        //     value ("Description")
+        //     style(Title_XS)
+
+        //   }
+        // }
+        // paragraph{
+        //   value("#{raw(event.desc)}")
+        //   style(Title_XS)
+        // }
+        // divider
+        // spacer
+        // if (exists(pet.link)){
+        //   attribution-link{
+        //     label{
+        //       if (exists(pet.linkDescription))
+        //       {
+        //         template ("#{value(pet.linkDescription)}")
+        //       }
+        //     }
+        //     url("#{value(pet.link)}")
+        //   }
+          
+        // }
+
+
+        // single-line{
+        //   text{
+        //     value("Interests")
+        //     style(Detail_L_Soft)
+        //   }
+        // }
+
+        // spacer
+        // for-each (pet.interests){
+        //   as(interest)
+        //   { 
+        //     paragraph{
+        //       value("#{value(interest)}")
+        //       style(Detail_L)
+        //     }
+        //     divider
+            
+        //   }
+        // }
+        // cell-card{
+        //   on-click{
+        //     intent{
+        //       goal:FindPets
+        //       value:$expr(pet.species)
+        //     }
+        //   }
+        //   slot1{
+        //     image{
+        //       url("/icons/logo-new.png")
+        //       shape (Circle)
+        //       background-color (Transparent)
+        //     }
+
+        //   }
+        //   slot2{
+        //     content{
+        //       order (SecondaryPrimary)
+        //       primary{
+        //         template ("show me more #{value(pet.species)}")
+        //       }
+        //       secondary{
+        //         template("click me!")
+        //       }
+        //     }
+
+        //   }
+        // }
+      
+        
+        
+  //       }
+        
+  //     }
+  //   }
+  // }
+
+macro-def (API_Events) {
+  params {
+    param (event) {
+      type (EventOutput)
+      min (Required) max (One)
+    }
+  }
+  content {
+    compound-card {
+      content {
+        image-card {
+          aspect-ratio (4:3)
+          title-area {
+            halign (Start)
+            slot1 {
+              text {
+                value ("")
+              }
+            }
+          }
+          image-url ("[#{value(event.imgUrl)}]")
+        }
+        paragraph {
+          value ("#{raw(event.title)}")
+          style (Title_S)
+        }
+        // single-line {
+        //   text {
+        //     value ("From #{value(hotel.lowRate)} • #{value(hotel.rating)} stars")
+        //     style (Detail_L_Soft)
+        //   }
+        // }
+      }
+      on-click {
+        view-for (event)
+      }
+    }
+  }
+}

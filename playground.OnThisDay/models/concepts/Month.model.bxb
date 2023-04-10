@@ -1,0 +1,3 @@
+text (Month) {
+  description (Zero-padded month, 01 through 12)
+}

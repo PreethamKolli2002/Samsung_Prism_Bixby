@@ -1,0 +1,4 @@
+train (t-ryiq6jc4dgwpenzvyod6or154) {
+  utterance ("[g:EventOutput] get events (this Tuesday)[v:time.DateTimeExpression]")
+  last-modified (1681137481958)
+}

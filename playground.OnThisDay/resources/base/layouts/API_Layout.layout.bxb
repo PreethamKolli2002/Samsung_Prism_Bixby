@@ -1,0 +1,64 @@
+
+layout-macro-def (API_Layout)
+{
+  params
+  { 
+    param (event){
+    type(EventOutput)
+    min(Required)
+    max(One)
+  }
+  }
+  content{
+    section{
+      content{
+        image{
+          aspect-ratio(4:3)
+          url("#{value(event.imgUrl)}")
+        }
+        divider
+
+        
+        
+
+       
+        single-line{
+          text{
+            value ("Title:")
+            style(Title_XS)
+
+          }
+        }
+        paragraph{
+          value("#{raw(event.title)}")
+          style(Title_XS)
+        }
+        divider
+        spacer
+        single-line{
+          text{
+            value ("Description:")
+            style(Title_XS)
+
+          }
+        }
+        paragraph{
+          value("#{raw(event.desc)}")
+          style(Title_XS)
+        }
+
+        divider
+        spacer
+
+        attribution-link{
+          label("Link to Original Source")
+          url("#{value(event.originalLink)}")
+        }
+      
+        
+        
+        }
+        
+      }
+    }
+  }

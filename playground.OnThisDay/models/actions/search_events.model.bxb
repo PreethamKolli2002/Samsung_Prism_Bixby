@@ -1,0 +1,34 @@
+action (search_events) {
+  type(Search)
+  description (Searches the important dates)
+  collect {
+    // input (language) {
+    //   type (Language)
+    //   min (Optional) max (One)
+    // }
+    // input (type) {
+    //   type (Type)
+    //   min (Optional) max (One)
+    // }
+    // input (month) {
+    //   type (Month)
+    //   min (Optional) max (One)
+    // }
+    // input (day) {
+    //   type (Day)
+    //   min (Optional) max (One)
+    // }
+    input (dateTimeExpression) {
+      type (time.DateTimeExpression)
+      min (Optional) max (One)
+      
+      default-select {
+        with-learning
+        with-rule {
+          select-first
+        }
+      }
+    }
+  }
+  output (EventOutput)
+}

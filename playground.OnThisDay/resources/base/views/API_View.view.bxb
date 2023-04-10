@@ -1,0 +1,144 @@
+// result-view {
+//   match: EventConcept(Events)
+//   render {
+//     if (size(this) == 1) {
+//       macro(__MACRO_ID__) {
+//         param (__PARAM_NAME__) {
+//           expression (__VALUE_EXPRESSION__)
+//         }
+//       }
+//     } else {
+//       list-of(this) {
+//         highlights {
+//           select (pick) {
+//             label ("Based on your preferences")
+//             order-by {
+//               sorting {
+//                 by-preferences
+//               }
+//             }
+//             macro (__MACRO_ID__) {
+//               param (__PARAM_NAME__) {
+//                 expression (__VALUE_EXPRESSION__)
+//               }
+//             }
+//           }
+//         }
+//         where-each(result) {
+//           macro(__MACRO_ID__) {
+//             param (__PARAM_NAME__) {
+//               expression (__VALUE_EXPRESSION__)
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// result-view {
+//   match {
+//     EventOutput (events) {
+//       from-output: search_events
+//     }
+//   }
+
+
+
+//   // message ("Here is an image:")
+
+//   render {
+//     layout {
+//       section {
+//         content {
+//           single-line {
+//           text {
+//             style (Detail_M)
+//             // value ("Title: #{value(title)}")
+//             value ("Title")
+//             // value: $expr(Events.title)
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// render {
+//       list-of (events) {
+//         where-each (item) {
+//           cell-card {
+//             slot1 {
+//               // image {
+//               //   url ("#{value(item.i)}")
+//               //   shape (Square)
+//               // }
+//               text {
+//                 value {
+//                   template ("#{value (item.title)}")
+//                   }
+//               }
+//             }
+//           //   slot2 {
+//           //     image {
+//           //       url ("#{value(item.)}")
+//           //       shape (Square)
+//           //     }
+//           // }
+//           slot2 {
+//           text {
+//                 value {
+//                   template ("#{value (item.title)}")
+//                   }
+//               }
+//         }
+
+//         slot3{
+//               paragraph {
+//                 value {
+//                     template ("#{value (item.desc)}")
+//                     }
+//           }
+//         }
+
+//       }
+// }
+
+//       }
+
+// }
+
+// }
+
+result-view
+{
+   match:EventOutput(events){
+     from-output: search_events
+   }
+     render{
+
+       if (size(events)>1){
+         list-of(events){
+         where-each(event)
+         {
+           layout-macro (API_Events){
+             param (event){
+               expression (event)
+             }
+           }
+         }
+         }
+
+         }
+       
+       if (size(events)==1){
+         layout-macro (API_Layout){
+           param(event){
+             expression (events)
+           }
+         }
+       }
+    }
+
+    
+  }

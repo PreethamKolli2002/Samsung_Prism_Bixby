@@ -1,0 +1,8 @@
+train (t-qw53mpq7kaz2xhwdu4xak66s5) {
+  utterance ("[g:EventOutput] get events (tomorrow)[v:time.DateTimeExpression]")
+  last-modified (1681137224143)
+}
+train (t-qc2xc35vbgvc7hy94ts5ar70q) {
+  utterance ("[g:EventOutput] get events (last Wednesday)[v:time.DateTimeExpression]")
+  last-modified (1681137370739)
+}
